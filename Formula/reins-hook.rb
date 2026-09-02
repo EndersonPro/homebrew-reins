@@ -55,8 +55,8 @@ class ReinsHook < Formula
   service do
     run [opt_bin/"reins-hook", "serve"]
     keep_alive true
-    log_file var/"log/reins-hook.log"
-    error_log_file var/"log/reins-hook.log"
+    log_path var/"log/reins-hook.log"
+    error_log_path var/"log/reins-hook.log"
   end
 
   test do
