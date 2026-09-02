@@ -5,20 +5,20 @@
 class ReinsHook < Formula
   desc "Pairs a phone with this Mac over SSH and serves the Reins loopback gateway"
   homepage "https://github.com/EndersonPro/reins"
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.2.0/reins-hook_Darwin_x86_64.tar.gz"
-      sha256 "6bcdfd40cd15baaa10871ef3aaf39429480d13a87736504b00a378c9bf0b70c0"
+      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.2.1/reins-hook_Darwin_x86_64.tar.gz"
+      sha256 "ce3bd9f5bb32ad6480e633a9d6bf6963985c9dec64e41f5a0222ad6f65dcc713"
 
       define_method(:install) do
         bin.install "reins-hook"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.2.0/reins-hook_Darwin_arm64.tar.gz"
-      sha256 "59c9371d2c1306478efb4a93187852afb6d4b14f26af874b57908c5181d65558"
+      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.2.1/reins-hook_Darwin_arm64.tar.gz"
+      sha256 "470988b446b59addae834e31d6173f1b3a83714687aa2e629e7431af926e147f"
 
       define_method(:install) do
         bin.install "reins-hook"
@@ -28,15 +28,15 @@ class ReinsHook < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.2.0/reins-hook_Linux_x86_64.tar.gz"
-      sha256 "66e72818a332657a5ea18219924c3709ba6f3cbddf7bf267faedbd363c0fe4bc"
+      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.2.1/reins-hook_Linux_x86_64.tar.gz"
+      sha256 "5fcf7c455b69000224339ec04293e7124f23379141e07b9a9712183cb9bfc34d"
       define_method(:install) do
         bin.install "reins-hook"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.2.0/reins-hook_Linux_arm64.tar.gz"
-      sha256 "ab4448b94acb7da54be1adfc3a7367049fa52ca880d8de09a326b4a22840bda8"
+      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.2.1/reins-hook_Linux_arm64.tar.gz"
+      sha256 "18b6983d0713f804db23a02d05e8f222efbc8be16139ff7b38a7d0b72becd679"
       define_method(:install) do
         bin.install "reins-hook"
       end
@@ -57,6 +57,12 @@ class ReinsHook < Formula
     keep_alive true
     log_path var/"log/reins-hook.log"
     error_log_path var/"log/reins-hook.log"
+    # brew services runs this under launchd with a minimal PATH
+    # (/usr/bin:/bin:/usr/sbin:/sbin), so adb/herdr/tmux resolved via
+    # exec.LookPath at runtime silently fail even though they're on the
+    # user's interactive shell PATH. Extend it with the locations those
+    # tools commonly live in.
+    environment_variables PATH: std_service_path_env + ":#{Dir.home}/.local/bin:#{Dir.home}/Library/Android/sdk/platform-tools"
   end
 
   test do
