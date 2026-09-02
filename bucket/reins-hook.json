@@ -1,0 +1,14 @@
+{
+    "version": "0.1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.1.0/reins-hook_Windows_x86_64.zip",
+            "bin": [
+                "reins-hook.exe"
+            ],
+            "hash": "cc6bed2d907e3f970aac84ef42d11633b683534c07eec65681d17dc11fec611c"
+        }
+    },
+    "homepage": "https://github.com/EndersonPro/reins",
+    "description": "Pairs a phone with this PC over SSH and serves the Reins loopback gateway"
+}
