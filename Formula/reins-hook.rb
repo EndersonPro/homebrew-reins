@@ -5,20 +5,20 @@
 class ReinsHook < Formula
   desc "Pairs a phone with this Mac over SSH and serves the Reins loopback gateway"
   homepage "https://github.com/EndersonPro/reins"
-  version "0.4.0"
+  version "0.4.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.4.0/reins-hook_Darwin_x86_64.tar.gz"
-      sha256 "d79161d078f244b912a9acf63ea454b4a3e99b9d30a5cb00f39f77c856d278cc"
+      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.4.1/reins-hook_Darwin_x86_64.tar.gz"
+      sha256 "a7beda0d8a431f6847e2d00301257f883b0a76d463f6ec74acaeb2c82283f1d8"
 
       define_method(:install) do
         bin.install "reins-hook"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.4.0/reins-hook_Darwin_arm64.tar.gz"
-      sha256 "23c00c1ffae36daeb940e8d6de9d9ca8309215d68bd7841cf58c30f14ea8b96b"
+      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.4.1/reins-hook_Darwin_arm64.tar.gz"
+      sha256 "7e2f0bbe4fb6ee775cbc564c366203a6c1333a5331c1c3edb9f2beda4ab0d9de"
 
       define_method(:install) do
         bin.install "reins-hook"
@@ -28,15 +28,15 @@ class ReinsHook < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.4.0/reins-hook_Linux_x86_64.tar.gz"
-      sha256 "9af08961d51c136565c31a4f15eede8dabd6712f8ea2f0d2bc0498669e733359"
+      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.4.1/reins-hook_Linux_x86_64.tar.gz"
+      sha256 "de5192f761b569e42d0230abdc0b6313bd26f3301cb396ea84c7a4ccce07efa7"
       define_method(:install) do
         bin.install "reins-hook"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.4.0/reins-hook_Linux_arm64.tar.gz"
-      sha256 "1e059c71a63247fce3acfac63597f14e589fa442bdd63de24a5388fde440fc01"
+      url "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.4.1/reins-hook_Linux_arm64.tar.gz"
+      sha256 "59f4df83330435ed6f5aa017a64aa17cdf03ad8ab4af40ebd54b0a2bc7db737a"
       define_method(:install) do
         bin.install "reins-hook"
       end
