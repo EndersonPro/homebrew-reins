@@ -1,12 +1,12 @@
 {
-    "version": "0.6.0",
+    "version": "0.7.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.6.0/reins-hook_Windows_x86_64.zip",
+            "url": "https://github.com/EndersonPro/homebrew-reins/releases/download/v0.7.0/reins-hook_Windows_x86_64.zip",
             "bin": [
                 "reins-hook.exe"
             ],
-            "hash": "67508345e28dc0d1f155a6af7a7337e5570b0ecc0caed69b28d3c043aae81966"
+            "hash": "f9e414de3b5150e7d921f00daab2b058f5a3d4b0e29a1526d79de931be03e65b"
         }
     },
     "homepage": "https://github.com/EndersonPro/reins",
